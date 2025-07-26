@@ -45,36 +45,214 @@ mat-icon {
 
 
 // Ranking
-/* Container que usa Flexbox para alinhar os itens */
 .list-item-container {
     display: flex;
-    /* Ativa o Flexbox */
     justify-content: space-between;
-    /* Mágica acontece aqui: empurra os itens para as extremidades */
     align-items: center;
-    /* Alinha os itens verticalmente ao centro */
-    width: 100%;
-    /* Faz o container ocupar todo o espaço da linha */
+    // width: 100%;
 }
 
-/* Estilo para o nome do jogador */
 .item-nome {
     font-weight: 500;
-    /* Deixa o nome com um leve negrito */
 }
 
-/* Estilo para a pontuação */
 .item-pontuacao {
+  display: flex;
+  align-items: center;
+}
+
+.medalha {
+  margin-left: 8px;
+  font-size: 1.2em;
+}
+
+::ng-deep .mat-list-option .mdc-list-item__content {
+    padding: 0 20px !important;
+}
+
+// Premiações
+.area-interativa {
     display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    width: 280px;
+}
+
+.area-interativa button {
+    width: 100%;
+}
+
+.tabela-premiacao-container {
+    background-color: #212121;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+    font-family: sans-serif;
+    width: 49rem;
+    margin-bottom: 55rem;
+}
+
+.tabela-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #444;
+    display: flex;
+    justify-content: center;
     align-items: center;
     gap: 8px;
-    /* Adiciona um espaço entre o valor e a medalha, se forem elementos separados */
+}
+
+.tabela-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.linha-premio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #333;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.linha-premio.porto-seguro {
+    background-color: #009688;
+    /* Verde (Teal) */
+    font-weight: bold;
+}
+
+.linha-premio.premio-maximo {
+    background-color: #FFC107;
+    /* Dourado */
+    color: #212121;
+    font-weight: bold;
+}
+
+.pergunta-numero {
+    font-weight: bold;
+    color: #bdbdbd;
+    background-color: #424242;
+    padding: 4px 8px;
+    border-radius: 4px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.premio-valor {
+    font-weight: 500;
+}
+
+
+// Avatar
+/* 
+  1. O container de posicionamento.
+  Agora usamos Flexbox para controlar o alinhamento.
+*/
+.avatar-posicionador {
+    position: relative;
+    /* Continua sendo a referência */
+    display: flex;
+    /* ATIVA O FLEXBOX */
+    align-items: center;
+    /* Alinha o avatar e o balão verticalmente ao centro */
+    justify-content: flex-start;
+    /* Alinha os itens no início do container */
 }
 
 /* 
-  Opcional: Adiciona um preenchimento (padding) mais agradável 
-  aos itens da lista para dar mais "respiro".
+  2. O balão de fala.
+  Removemos o posicionamento absoluto e usamos margens.
 */
-::ng-deep .mat-list-option .mdc-list-item__content {
-    padding: 0 20px !important;
+.balao-fala {
+    /* Removemos position: absolute, top, left, right */
+
+    /* Adicionamos uma margem para criar espaço entre o balão e a imagem */
+    margin-left: 20px;
+
+    position: relative;
+    /* Necessário para posicionar a seta '::after' */
+    width: 220px;
+    padding: 15px;
+
+    background-color: #f8f9fa;
+    /* Um branco suave */
+    color: #343a40;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    /* Animação (opcional, mas dá um toque legal) */
+    opacity: 0;
+    animation: aparecer 0.4s 0.5s forwards;
+}
+
+/* 
+  3. A "seta" do balão.
+  Agora usamos uma técnica de centralização muito mais precisa.
+*/
+.balao-fala::before {
+    /* Usando ::before para não conflitar com outros ::after */
+    content: '';
+    position: absolute;
+
+    /* --- A MÁGICA DA CENTRALIZAÇÃO --- */
+    top: 50%;
+    /* Coloca o topo da seta no meio vertical do balão */
+    right: 100%;
+    /* Encosta a seta na borda esquerda do balão */
+    transform: translateY(-50%);
+    /* Puxa a seta para cima pela metade de sua própria altura */
+
+    /* O truque do triângulo com bordas */
+    border: 10px solid transparent;
+    border-right-color: #f8f9fa;
+    /* Cor da seta igual ao fundo do balão */
+}
+
+/* 4. Media Query para Telas Menores */
+/* Quando a tela for menor que 768px (tablets e celulares) */
+@media (max-width: 767.98px) {
+    .avatar-posicionador {
+        flex-direction: column;
+        /* Empilha o avatar e o balão verticalmente */
+        align-items: center;
+        /* Centraliza tudo */
+    }
+
+    .balao-fala {
+        margin-left: 0;
+        /* Remove a margem lateral */
+        margin-top: -40px;
+        /* << PUXA O BALÃO PARA CIMA, sobrepondo o peito do avatar */
+        width: 80%;
+        /* Faz o balão ocupar 80% da largura disponível */
+        z-index: 10;
+        /* Garante que o balão fique na frente da imagem */
+    }
+
+    /* Esconde a seta lateral em telas pequenas */
+    .balao-fala::before {
+        display: none;
+    }
+}
+
+
+/* 5. Animação e estilo do texto (sem alterações) */
+@keyframes aparecer {
+    to {
+        opacity: 1;
+    }
+}
+
+.balao-fala p {
+    margin: 0;
+    font-family: sans-serif;
+    line-height: 1.4;
 }
