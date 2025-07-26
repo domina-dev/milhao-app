@@ -5,18 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './core/lib/modules/material.module';
-import { CustomLayoutModule } from './views/custom-layout/custom-layout.module';
+import { HomeModule } from './views/pages/home/home.module';
+import { CustomLayoutComponent } from './views/custom-layout/custom-layout.component';
+import { ToolbarModule } from './core/lib/components/toolbar/toolbar.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CustomLayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    CustomLayoutModule
+    ToolbarModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

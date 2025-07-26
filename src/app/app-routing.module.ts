@@ -3,19 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomLayoutComponent } from './views/custom-layout/custom-layout.component';
 
 const routes: Routes = [
-    {
-        path: '',
-        component: CustomLayoutComponent,
-        children: [
-            // {
-            //     path: 'agendamentos',
-            //     loadChildren: () =>
-            //         import('./views/pages/agendamentos/agendamentos.module').then(
-            //             (m) => m.AgendamentosModule
-            //         )
-            // }
-        ]
-    }
+  {
+    path: '',
+    component: CustomLayoutComponent,
+    children: [
+        {
+          path: 'home',
+          loadChildren: () =>
+            import('./views/pages/home/home.module').then(m => m.HomeModule)
+        }
+    ]
+}
 ];
 
 @NgModule({

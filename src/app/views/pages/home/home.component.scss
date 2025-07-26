@@ -1,0 +1,44 @@
+:host {
+    ::ng-deep {}
+}
+
+.mat-raised-button {
+    height: 4rem;
+    width: 15rem;
+}
+
+.inicia-jogo {
+    background-color: rgb(11, 207, 11);
+}
+
+.ver-ajuda {
+    background-color: #8471E2;
+}
+
+.ultimo-jogo {
+    background-color: #EDE9E0;
+}
+
+
+mat-icon {
+    margin-right: 1rem;
+    /* Aumenta o tamanho do ícone */
+    font-size: 36px;
+
+    /* Garante que o espaço ocupado pelo ícone seja quadrado */
+    height: 36px;
+    width: 36px;
+}
+
+.icon-roxo {
+    color: #673AB7;
+    /* Deep Purple */
+}
+
+.icon-amarelo {
+    color: #FFC107;
+}
+
+.icon-azul {
+    color: #FC561E;
+}
