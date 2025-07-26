@@ -42,3 +42,39 @@ mat-icon {
 .icon-azul {
     color: #FC561E;
 }
+
+
+// Ranking
+/* Container que usa Flexbox para alinhar os itens */
+.list-item-container {
+    display: flex;
+    /* Ativa o Flexbox */
+    justify-content: space-between;
+    /* Mágica acontece aqui: empurra os itens para as extremidades */
+    align-items: center;
+    /* Alinha os itens verticalmente ao centro */
+    width: 100%;
+    /* Faz o container ocupar todo o espaço da linha */
+}
+
+/* Estilo para o nome do jogador */
+.item-nome {
+    font-weight: 500;
+    /* Deixa o nome com um leve negrito */
+}
+
+/* Estilo para a pontuação */
+.item-pontuacao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Adiciona um espaço entre o valor e a medalha, se forem elementos separados */
+}
+
+/* 
+  Opcional: Adiciona um preenchimento (padding) mais agradável 
+  aos itens da lista para dar mais "respiro".
+*/
+::ng-deep .mat-list-option .mdc-list-item__content {
+    padding: 0 20px !important;
+}
