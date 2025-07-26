@@ -1,0 +1,129 @@
+/* Estilos da Toolbar - Cores Domina Dev */
+.custom-toolbar {
+    background-color: #1E3A8A !important;
+    /* Azul escuro da Domina Dev */
+    color: white;
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(30, 58, 138, 0.3);
+}
+
+/* Seção da Logo */
+.logo-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.logo-section:hover {
+    opacity: 0.8;
+}
+
+.logo-image {
+    height: 13rem;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Spacer para empurrar conteúdo para a direita */
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+/* Seção do Usuário */
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Pontos do usuário */
+.user-points {
+    display: flex;
+    align-items: center;
+}
+
+.points-circle {
+    background-color: #FF6B35;
+    /* Laranja da Domina Dev */
+    color: white;
+    border-radius: 50%;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 60px;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(255, 107, 53, 0.3);
+}
+
+/* Nome do usuário */
+.user-name {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Avatar do usuário */
+.user-avatar {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.user-avatar:hover {
+    color: #FF6B35;
+    /* Laranja da Domina Dev */
+}
+
+.avatar-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    color: white;
+}
+
+.avatar-icon:hover {
+    color: #FF6B35;
+    /* Laranja da Domina Dev */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .custom-toolbar {
+        padding: 0 8px;
+    }
+
+    .user-section {
+        gap: 8px;
+    }
+
+    .logo-image {
+        height: 32px;
+    }
+
+    .user-name {
+        font-size: 14px;
+    }
+
+    .points-circle {
+        font-size: 12px;
+        padding: 6px 10px;
+        min-width: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-name {
+        display: none;
+    }
+
+    .user-section {
+        gap: 12px;
+    }
+}

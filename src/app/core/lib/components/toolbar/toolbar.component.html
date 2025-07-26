@@ -1,0 +1,32 @@
+<mat-toolbar class="custom-toolbar">
+  <!-- Seção da Logo -->
+  <div class="logo-section" (click)="onLogoClick()">
+    <img style="margin-top: 4rem;"
+      [src]="logoSrc" 
+      [alt]="logoAlt" 
+      class="logo-image"
+    />
+  </div>
+
+  <!-- Spacer para empurrar o conteúdo para a direita -->
+  <span class="toolbar-spacer"></span>
+
+  <!-- Seção do Usuário -->
+  <div class="user-section">
+    <!-- Pontos do usuário -->
+    <div class="user-points">
+      <span class="points-circle">{{ formatPoints(userPoints) }}</span>
+    </div>
+
+    <!-- Nome do usuário -->
+    <div class="user-name">
+      <span>{{ userName }}</span>
+    </div>
+
+    <!-- Avatar do usuário -->
+    <div class="user-avatar" (click)="onUserAvatarClick()" *ngIf="showUserAvatar">
+      <mat-icon class="avatar-icon">account_circle</mat-icon>
+    </div>
+  </div>
+</mat-toolbar>
+
